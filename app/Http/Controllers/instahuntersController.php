@@ -28,8 +28,8 @@ class instahuntersController extends Controller
         $client = new \GuzzleHttp\Client();
         $res = $client->request('POST', 'http://localhost/AnalisisBigData/public/apiInsert.php', [
             'json' => [
-                'campoSelect' => 'hashtag',
-                'palabraClave' => 'encasa',
+                'campoSelect' => $this->request->input('campoSelect'),
+                'palabraClave' => $this->request->input('palabraClave'),
                 ]
             ]
 
@@ -38,10 +38,4 @@ class instahuntersController extends Controller
         dd($res);
 
     }
-
-/*     public function postGuzzleRequest()
-    {
-        return $this->request->input('campoSelect');
-        return $this->request->input('palabraClave');
-    } */
 }
