@@ -9,47 +9,47 @@
                    <br>
                    <br>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="">
             <div class="card">
                 <div class="card-header"><center><u><b>ACCESOS PERSONALIZADOS A TU ROL</b></u></center></div>
                 </div>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <br>
     <br>
     <div class="card">
         <br>
     <center><img src="{{ asset('Imagenes/Usuarios.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
       <div class="card-body">
-        <center><a class="btn btn-primary" href="{{URL::to('GestionUser')}}">Gestiòn Usuarios</a></center>
+        <center><a class="btn btn-primary" href="{{URL::to('GestionUser')}}">Gestiòn Usuarios Internos</a></center>
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
   <br>
     <br>
     <div class="card">
     <br>
-    <center><img src="{{ asset('Imagenes/Facturas.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+    <center><img src="{{ asset('Imagenes/Usuarios.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
       <div class="card-body">
-      <center><a href="#" class="btn btn-primary">Gestiòn Facturas</a></center>
+      <center><a class="btn btn-primary" href="{{URL::to('UsuariosTercero')}}">Gestiòn Usuarios Externos</a></center>
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
   <br>
     <br>
   <div class="card">
   <br>
-  <center><img src="{{ asset('Imagenes/Productos.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+  <center><img src="{{ asset('Imagenes/Usuarios.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
       <div class="card-body">
-      <center><a href="#" class="btn btn-primary">Gestiòn Productos</a></center>
+      <center><a class="btn btn-primary" href="{{URL::to('UsuariosInterno')}}">Gestiòn Usuarios Internos</a></center>
       </div>
     </div>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-4">
   <br>
     <br>
   <div class="card">
@@ -61,7 +61,43 @@
     </div>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-4">
+  <br>
+    <br>
+  <div class="card">
+  <br>
+  <center><img src="{{ asset('Imagenes/Rol.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+      <div class="card-body">
+      <center><a class="btn btn-primary" href="{{URL::to('Roles')}}">Gestiòn Rol</a></center>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+  <br>
+    <br>
+  <div class="card">
+  <br>
+  <center><img src="{{ asset('Imagenes/Cargo.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+      <div class="card-body">
+      <center><a class="btn btn-primary" href="{{URL::to('Cargos')}}">Gestiòn de Cargos</a></center>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+  <br>
+    <br>
+  <div class="card">
+  <br>
+  <center><img src="{{ asset('Imagenes/SectorEmpresa.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+      <div class="card-body">
+      <center><a class="btn btn-primary" href="{{URL::to('Sector')}}">Gestiòn de Sector Empresa</a></center>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
   <br>
     <br>
   <div class="card">
@@ -72,6 +108,56 @@
       </div>
     </div>
   </div>
+
+  <div class="col-sm-4">
+  <br>
+    <br>
+  <div class="card">
+  <br>
+  <center><img src="{{ asset('Imagenes/MedioPago.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+      <div class="card-body">
+      <center><a class="btn btn-primary" href="{{URL::to('MedioPagos')}}">Modo de Pago</a></center>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+  <br>
+    <br>
+  <div class="card">
+  <br>
+  <center><img src="{{ asset('Imagenes/Categorias.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+      <div class="card-body">
+      <center><a class="btn btn-primary" href="{{URL::to('Categorias')}}">Categorias</a></center>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+  <br>
+    <br>
+  <div class="card">
+  <br>
+  <center><img src="{{ asset('Imagenes/Servicio.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+      <div class="card-body">
+      <center><a class="btn btn-primary" href="{{URL::to('Servicios')}}">Servicio</a></center>
+      </div>
+      </div>
+    </div>
+
+
+  <div class="col-sm-4">
+  <br>
+    <br>
+  <div class="card">
+  <br>
+  <center><img src="{{ asset('Imagenes/Facturas.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
+      <div class="card-body">
+      <center><a class="btn btn-primary" href="{{URL::to('Categorias')}}">Factura</a></center>
+      </div>
+    </div>
+  </div>
+
 
 </div>
                 </div>

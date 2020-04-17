@@ -8,7 +8,52 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    protected $table="users";
+    protected $primaryKey="id";
+    public $incrementing = true;
+    public $timestamps = false;
+
     use Notifiable;
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function authorizeRoles($roles)
+    {
+        if($this->hasAnyRole($roles)){
+            return true;
+        }
+        abort(401, 'Esta accion no esta Autorizada');
+
+    }
+
+    public function hasAnyRole($roles)
+    {
+        if(is_array($roles)){
+            foreach ($roles as $role) {
+               if($this->hasRole($role)){
+                return true;
+               }
+            }
+        } else {
+            if($this->hasRole($roles)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function hasRole($role)
+    {
+        if($this->roles()->where('name',$role)->first())
+        {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +61,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'rol', 'estado',
+        'name', 'email', 'password',
     ];
 
     /**

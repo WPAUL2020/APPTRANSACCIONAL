@@ -3,6 +3,7 @@
 @section('content')
 
 <title>Big Data E-Commerce</title>
+<link href="{{ asset("bootstrap/css/bootstrap.css")  }}" rel="stylesheet" />
                    <a class="btn btn-outline-secondary" href="{{URL::to('GestionUser')}}">MI PERFIL</a>
                    <a class="btn btn-outline-secondary" href="{{URL::to('GestionUser')}}">MENSAJES</a>
                    <a class="btn btn-outline-secondary" href="{{URL::to('appl')}}">REGRESAR</a>
@@ -27,7 +28,7 @@
                        <td>{{ $users1->estado }}</td>
                        <td>
                            <a href="">VER</a>
-                           <a href="">EDITAR</a>
+                           <a href="EditarUsuarios/updateUser/{{$users1->id}}">EDITAR</a>
                        </td>
                        </tr>
                    @endforeach

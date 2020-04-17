@@ -60,41 +60,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol del Usuario') }}</label>
-                            <div class="col-md-6">
-                            <td><select name="rol">
-                                <option></option>
-                                <option>Administrador</option>
-                                <option>Secretaria</option>
-                                <option>Ejecutivo de Cuenta</option>
-                                <option>Financiero</option>
-                                <option>Facturaciòn</option>
-                                </select></td>
-
-                                @error('rol')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Estado del Usuario') }}</label>
-                            <div class="col-md-6">
-                            <td><select name="estado">
-                                <option></option>
-                                <option>Activo</option>
-                                <option>Deshabilitado</option>
-                                </select></td>
-
-                                @error('estado')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

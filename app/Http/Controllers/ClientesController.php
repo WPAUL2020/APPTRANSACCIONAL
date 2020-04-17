@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\GestionClientes as clientes;
+use App\sector_empresa_tercero as SectorEmpresa;
+use App\rol as rol;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class ClientesController extends Controller
 {
@@ -40,31 +43,6 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-     public function guardar(Request $clientes)
-     {
-        $clientes = new clientes;
-        $clientes -> NIT = $_POST["NIT"];
-        $clientes -> ID_SECTOR_EMPRESA_TERCERO = $_POST["ID_SECTOR_EMPRESA_TERCERO"];
-        if ($clientes -> ID_SECTOR_EMPRESA_TERCERO = "SECTOR ADMINISTRACIÓN Y GESTIÓN")
-        {
-            $clientes -> ID_SECTOR_EMPRESA_TERCERO = 1;
-        }
-        if ($clientes -> ID_SECTOR_EMPRESA_TERCERO = "SECTOR AGRICULTURA Y GANADERÍA")
-        {
-            $clientes -> ID_SECTOR_EMPRESA_TERCERO = 2;
-        }
-        $clientes -> NOMBRE = $_POST["NOMBRE"];
-        $clientes -> DIRECCION = $_POST["DIRECCION"];
-        $clientes -> TELEFONO = $_POST["TELEFONO"];
-        $clientes -> PAIS = $_POST["PAIS"];
-        $clientes -> CIUDAD = $_POST["CIUDAD"];
-        $clientes -> CORREO = $_POST["CORREO"];
-        $clientes -> WEBSITE = $_POST["WEBSITE"];
-        $clientes -> NIT = $_POST["NIT"];
-        $clientes -> OBSERVACION = $_POST["OBSERVACION"];
-        $clientes ->save();
-        return Redirect('Clientes')->with("mensaje" , "cliente $clientes->NOMBRE Registro Exitoso");
-    }
 
     public function Clientes()
     {
@@ -75,6 +53,34 @@ class ClientesController extends Controller
             return redirect('/login');
         }
     }
+
+    public function InsertEmpresa()
+    {
+            $data = DB::select('EXEC InsertEmpresaTercero');
+            dump($data);
+    }
+
+    public function guardar(Request $clientes)
+    {
+        $clientes = DB::select(
+            'call InsertEmpresaTercero(?,?,?,?,?,?,?,?,?,?,?,?) ',
+            array(
+       $clientes -> NOMBRE,
+       $clientes -> DIRECCION,
+       $clientes -> TELEFONO,
+       $clientes -> PAIS,
+       $clientes -> CIUDAD,
+       $clientes -> CORREO,
+       $clientes -> WEBSITE,
+       $clientes -> NIT,
+       $clientes -> OBSERVACION,
+       $clientes -> USUARIO,
+       $clientes -> CONTRASENA,
+       $clientes -> ID_ROL));
+       $clientes->save();
+       return Redirect('Clientes')->with("mensaje" , "Registro Exitoso");
+   }
+
     public function GestionClientes()
     {
         if (Auth::check()) {
@@ -83,5 +89,12 @@ class ClientesController extends Controller
         } else {
             return redirect('/login');
         }
+    }
+
+    public function getFrmInsertEmpresa()
+    {
+     $roles = rol::all();
+     $SectorEmpresas = SectorEmpresa::all();
+        return view('clientes')->with(['roles'=>$roles, 'SectorEmpresas'=>$SectorEmpresas]);
     }
 }
