@@ -104,3 +104,7 @@ Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Instahunter Routes()
+
+Route::get('instahunters', ['as' => 'instahunters', 'uses' => 'instahuntersController@test']);
+Route::post('instahunters/instahunters', 'instahuntersController@postGuzzleRequest');/**Guardar el registro en base de datos */
