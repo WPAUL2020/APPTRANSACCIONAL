@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Middleware;
+use GuzzleHttp\Client;
+
 
 class instahuntersController extends Controller
 {
@@ -29,7 +31,16 @@ class instahuntersController extends Controller
         return view('instahunters\instahunters');
     }
 
+    public function getFrmInstaHunterview()
+    {
+        $client = new Client([
+            'base_uri' => 'http://localhost/AnalisisBigData/public/'
+        ]);
 
+            $response = $client->request('GET', 'apiPreview.php');
+            $posts = json_decode($response->getBody()->getContents());
+            return view('instahunters\instahunterview', compact('posts'));
+    }
 
 
     /**
@@ -53,4 +64,5 @@ class instahuntersController extends Controller
         return view('instahunters\instahunters');
 
     }
+
 }

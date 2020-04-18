@@ -108,3 +108,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('instahunters', ['as' => 'instahunters', 'uses' => 'instahuntersController@getFrmInstaHunter']);
 Route::post('instahunters/instahunters', 'instahuntersController@postGuzzleRequest');/**Guardar el registro en base de datos */
+Route::get('instahunterview', ['as' => 'instahunterview', 'uses' => 'instahuntersController@getFrmInstaHunterview']);
