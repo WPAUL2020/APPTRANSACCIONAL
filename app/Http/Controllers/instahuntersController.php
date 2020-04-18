@@ -7,13 +7,23 @@ use GuzzleHttp\Middleware;
 
 class instahuntersController extends Controller
 {
+    /**
+     * $request
+     *
+     * @var undefined
+     */
     protected $request;
 
     public function __construct(Request $request) {
         $this->request = $request;
     }
 
-    public function test()
+    /**
+     * getFrmInstaHunter
+     *
+     * @return Illuminate\Contracts\Support\Renderable
+     */
+    public function getFrmInstaHunter()
     {
 
         return view('instahunters\instahunters');
@@ -22,6 +32,11 @@ class instahuntersController extends Controller
 
 
 
+    /**
+     * postGuzzleRequest
+     *
+     * @return void
+     */
     public function postGuzzleRequest()
     {
         /* http://localhost/AnalisisBigData/public/apiInsert.php */
@@ -35,7 +50,7 @@ class instahuntersController extends Controller
 
         );
 
-        dd($res);
+        return view('instahunters\instahunters');
 
     }
 }
