@@ -15,9 +15,15 @@ class instahuntersController extends Controller
      * @var undefined
      */
     protected $request;
+    protected $client;
+
 
     public function __construct(Request $request) {
         $this->request = $request;
+        $this->client = new Client([
+            'base_uri' => 'http://localhost/AnalisisBigData/public/'
+        ]);
+        $this->middleware('auth');
     }
 
     /**
@@ -33,11 +39,7 @@ class instahuntersController extends Controller
 
     public function getFrmInstaHunterview()
     {
-        $client = new Client([
-            'base_uri' => 'http://localhost/AnalisisBigData/public/'
-        ]);
-
-            $response = $client->request('GET', 'apiPreview.php');
+            $response =  $this->client->request('GET', 'apiPreview.php');
             $posts = json_decode($response->getBody()->getContents());
 
             return view('instahunters\instahunterview', compact('posts'));
@@ -52,8 +54,7 @@ class instahuntersController extends Controller
     public function postGuzzleRequest()
     {
         /* http://localhost/AnalisisBigData/public/apiInsert.php */
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('POST', 'http://localhost/AnalisisBigData/public/apiInsert.php', [
+        $res = $this->client->request('POST', 'apiInsert.php', [
             'json' => [
                 'campoSelect' => $this->request->input('campoSelect'),
                 'palabraClave' => $this->request->input('palabraClave'),

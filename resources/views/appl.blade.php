@@ -104,7 +104,7 @@
   <br>
   <center><img src="{{ asset('Imagenes/BigData.png')}}" style="max-width: 150px; max-height: 150px" class='imgRedonda'/></center>
       <div class="card-body">
-      <center><a class="btn btn-primary" href="{{URL::to('http://localhost/AnalisisBigData/public/')}}">Gestiòn BigData</a></center>
+      <center><a class="btn btn-primary" href="{{URL::to('instahunters')}}">Gestiòn BigData</a></center>
       </div>
     </div>
   </div>
