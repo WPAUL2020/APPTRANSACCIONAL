@@ -39,7 +39,6 @@ class instahuntersController extends Controller
 
             $response = $client->request('GET', 'apiPreview.php');
             $posts = json_decode($response->getBody()->getContents());
-
             return view('instahunters\instahunterview', compact('posts'));
     }
 
@@ -65,23 +64,5 @@ class instahuntersController extends Controller
         return view('instahunters\instahunters');
 
     }
-
-
-    public function getCsv()
-    {
-        $client = new Client([
-            'base_uri' => 'http://localhost/AnalisisBigData/public/'
-        ]);
-
-            $response = $client->request('GET', 'apiPreview.php');
-            $posts = json_decode($response->getBody()->getContents(), true);
-
-            $headers = ['img', 'txt','date', 'likes','comentarios'];
-            $posts = array_merge([$headers], $posts);
-
-            return (new \LaravelCsvGenerator\LaravelCsvGenerator())
-                    ->setData($posts)
-                    ->renderStream();
-        }
 
 }
