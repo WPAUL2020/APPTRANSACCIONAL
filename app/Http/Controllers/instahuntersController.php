@@ -15,9 +15,17 @@ class instahuntersController extends Controller
      * @var undefined
      */
     protected $request;
+    protected $client;
+    protected $data2view;
+
 
     public function __construct(Request $request) {
         $this->request = $request;
+        $this->client = new Client([
+            'base_uri' => 'http://localhost/AnalisisBigData/public/'
+        ]);
+        $this->data2view = null;
+        $this->middleware('auth');
     }
 
     /**
@@ -27,17 +35,18 @@ class instahuntersController extends Controller
      */
     public function getFrmInstaHunter()
     {
-
-        return view('instahunters\instahunters');
+        $data2view = null;
+        if ($data2view!=null) {
+            return view('instahunters\instahunters', compact('data2view'));
+        }
+        else {
+            return view('instahunters\instahunters' , compact('data2view'));
+        }
     }
 
     public function getFrmInstaHunterview()
     {
-        $client = new Client([
-            'base_uri' => 'http://localhost/AnalisisBigData/public/'
-        ]);
-
-            $response = $client->request('GET', 'apiPreview.php');
+            $response =  $this->client->request('GET', 'apiPreview.php');
             $posts = json_decode($response->getBody()->getContents());
 
             return view('instahunters\instahunterview', compact('posts'));
@@ -51,9 +60,9 @@ class instahuntersController extends Controller
      */
     public function postGuzzleRequest()
     {
+        $data2view = null;
         /* http://localhost/AnalisisBigData/public/apiInsert.php */
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('POST', 'http://localhost/AnalisisBigData/public/apiInsert.php', [
+        $res = $this->client->request('POST', 'apiInsert.php', [
             'json' => [
                 'campoSelect' => $this->request->input('campoSelect'),
                 'palabraClave' => $this->request->input('palabraClave'),
@@ -61,8 +70,19 @@ class instahuntersController extends Controller
             ]
 
         );
+        $data2view = json_decode($res->getBody()->getContents());
 
-        return view('instahunters\instahunters');
+        if ($data2view!=null) {
+            $success = "<script>alert('".$data2view->message."')</script>";
+            return view('instahunters\instahunters', compact('success', 'data2view'));
+        }
+        else {
+            return view('instahunters\instahunters', compact('data2view'));
+        }
+
+
+
+
 
     }
 

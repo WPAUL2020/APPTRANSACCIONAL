@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<title>Vista Previa</title>
+<a class="btn btn-outline-secondary" href="{{URL::to('appl')}}">MI PERFIL</a>
+                   <a class="btn btn-outline-secondary" href="{{URL::to('appl')}}">MENSAJES</a>
+                   <a class="btn btn-outline-secondary" href="{{URL::to('appl')}}">APPL</a>
+                   <a class="btn btn-outline-secondary" href="{{URL::to('home')}}">HOME</a>
+                   <a class="btn btn-outline-secondary" href="{{URL::to('instahunters')}}">REGRESAR</a>
+                   <br>
+                   <br>
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,6 +22,8 @@
             </div>
         </div>
     </div>
+</div> --}}
+
 </div>
 
 @endsection
