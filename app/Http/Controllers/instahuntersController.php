@@ -16,6 +16,7 @@ class instahuntersController extends Controller
      */
     protected $request;
     protected $client;
+    protected $data2view;
 
 
     public function __construct(Request $request) {
@@ -23,6 +24,7 @@ class instahuntersController extends Controller
         $this->client = new Client([
             'base_uri' => 'http://localhost/AnalisisBigData/public/'
         ]);
+        $this->data2view = null;
         $this->middleware('auth');
     }
 
@@ -33,8 +35,13 @@ class instahuntersController extends Controller
      */
     public function getFrmInstaHunter()
     {
-
-        return view('instahunters\instahunters');
+        $data2view = null;
+        if ($data2view!=null) {
+            return view('instahunters\instahunters', compact('data2view'));
+        }
+        else {
+            return view('instahunters\instahunters' , compact('data2view'));
+        }
     }
 
     public function getFrmInstaHunterview()
@@ -53,6 +60,7 @@ class instahuntersController extends Controller
      */
     public function postGuzzleRequest()
     {
+        $data2view = null;
         /* http://localhost/AnalisisBigData/public/apiInsert.php */
         $res = $this->client->request('POST', 'apiInsert.php', [
             'json' => [
@@ -62,8 +70,19 @@ class instahuntersController extends Controller
             ]
 
         );
+        $data2view = json_decode($res->getBody()->getContents());
 
-        return view('instahunters\instahunters');
+        if ($data2view!=null) {
+            $success = "<script>alert('".$data2view->message."')</script>";
+            return view('instahunters\instahunters', compact('success', 'data2view'));
+        }
+        else {
+            return view('instahunters\instahunters', compact('data2view'));
+        }
+
+
+
+
 
     }
 
