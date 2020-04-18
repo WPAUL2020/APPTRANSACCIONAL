@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "eugene-melbourne/laravel-csv-generator": "^1.9",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.5",
         "jenssegers/mongodb": "^3.6",
