@@ -10,14 +10,14 @@
                 <div class="col-sm-8">
 
                     <div class="blog-posts">
-
+                        @foreach ($allData as $data)
                         <!-- Blog Post -->
                         <div class="blog-post">
 
                             <div class="post-thumb">
 
-                                <a href="blog-post.html">
-                                    <img src="assets/images/blog-thumb-1.png" class="img-rounded" />
+                                <a href="#">
+                                    <img src="{{$data->img}}" class="img-rounded" />
                                     <span class="hover-zoom"></span>
                                 </a>
 
@@ -26,100 +26,33 @@
                             <div class="post-details">
 
                                 <h3>
-                                    <a href="blog-post.html">We hill lady will both sang room by</a>
+                                    <a href="#">Post</a>
                                 </h3>
 
                                 <div class="post-meta">
 
                                     <div class="meta-info">
-                                        <i class="entypo-calendar"></i> 04 November 2015								</div>
+                                        <i class="entypo-calendar"></i> {{$data->date}}</div>
 
                                     <div class="meta-info">
                                         <i class="entypo-comment"></i>
-                                        3 comments
+                                        {{$data->comentarios}}
                                     </div>
+
+                                    <div class="meta-info">
+                                        <i class="far fa-thumbs-up"></i>
+                                        {{$data->likes}}
+                                    </div>
+
 
                                 </div>
 
-                                <p>Paid was hill sir high. For him precaution any advantages dissimilar comparison few terminated projecting. Prevailed discovery immediate objection of ye at. Repair summer one winter living feebly pretty his. In so sense am known these since.</p>
+                                <p>{{$data->txt}}</p>
 
                             </div>
 
                         </div>
-
-                        <!-- Blog Post -->
-                        <div class="blog-post">
-
-                            <div class="post-thumb">
-
-                                <a href="blog-post.html">
-                                    <img src="assets/images/blog-thumb-1.png" class="img-rounded" />
-                                    <span class="hover-zoom"></span>
-                                </a>
-
-                            </div>
-
-                            <div class="post-details">
-
-                                <h3>
-                                    <a href="blog-post.html">Allowance sweetness direction to as...</a>
-                                </h3>
-
-                                <div class="post-meta">
-
-                                    <div class="meta-info">
-                                        <i class="entypo-calendar"></i> 02 November 2015								</div>
-
-                                    <div class="meta-info">
-                                        <i class="entypo-comment"></i>
-                                        0 comments
-                                    </div>
-
-                                </div>
-
-                                <p>Paid was hill sir high. For him precaution any advantages dissimilar comparison few terminated projecting. Prevailed discovery immediate objection of ye at. Repair summer one winter living feebly pretty his. In so sense am known these since.</p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Blog Post -->
-                        <div class="blog-post">
-
-                            <div class="post-thumb">
-
-                                <a href="blog-post.html">
-                                    <img src="assets/images/blog-thumb-1.png" class="img-rounded" />
-                                    <span class="hover-zoom"></span>
-                                </a>
-
-                            </div>
-
-                            <div class="post-details">
-
-                                <h3>
-                                    <a href="blog-post.html">Is we miles ready he might going</a>
-                                </h3>
-
-                                <div class="post-meta">
-
-                                    <div class="meta-info">
-                                        <i class="entypo-calendar"></i> 01 November 2015								</div>
-
-                                    <div class="meta-info">
-                                        <i class="entypo-comment"></i>
-                                        1 comment
-                                    </div>
-
-                                </div>
-
-                                <p>Paid was hill sir high. For him precaution any advantages dissimilar comparison few terminated projecting. Prevailed discovery immediate objection of ye at. Repair summer one winter living feebly pretty his. In so sense am known these since.</p>
-
-                            </div>
-
-                        </div>
-
-
+                        @endforeach
                         <!-- Blog Pagination -->
                         <div class="text-center">
 

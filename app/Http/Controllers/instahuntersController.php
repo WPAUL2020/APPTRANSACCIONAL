@@ -47,9 +47,9 @@ class instahuntersController extends Controller
     public function getFrmInstaHunterview()
     {
             $response =  $this->client->request('GET', 'apiPreview.php');
-            $posts = json_decode($response->getBody()->getContents());
+            $allData = json_decode($response->getBody()->getContents());
 
-            return view('instahunters\instahunterview', compact('posts'));
+            return view('instahunters\instahunterview', compact('allData'));
     }
 
 
