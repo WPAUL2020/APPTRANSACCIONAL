@@ -93,37 +93,35 @@
 
                 <div class="col-sm-6">
 
-                    <a href="#">
-                        <img src="assets/images/logo@2x.png" width="100" />
+                    <a href="https://universitariadecolombia.edu.co">
+                        <img src="{{ asset('blogFrontend/assets/images/logo1.png') }}" width="120"/>
                     </a>
 
                     <p>
-                        Vivamus imperdiet felis consectetur onec eget orci adipiscing nunc. <br />
-                        Pellentesque fermentum, ante ac interdum ullamcorper.
+                        Institución educativa <br />
+                        Universitaria de Colombia.
                     </p>
 
                 </div>
 
                 <div class="col-sm-3">
 
-                    <h5>Address</h5>
-
+                    <h5>Sede Administrativa:</h5>
                     <p>
-                        Loop, Inc. <br />
-                        795 Park Ave, Suite 120 <br />
-                        San Francisco, CA 94107
+                        Carrera 7 No. 35-85 <br />
+                        Bogotá, COL
                     </p>
 
                 </div>
 
                 <div class="col-sm-3">
 
-                    <h5>Contact</h5>
+                    <h5>Contactenos</h5>
 
                     <p>
-                        Phone: +1 (52) 2215-251 <br />
-                        Fax: +1 (22) 5138-219 <br />
-                        info@laborator.al
+                        Teléfono: +57 (1) 288 – 0871 <br />
+                        Teléfono: +57 (1) 232 – 4070 <br />
+                        inscripciones@universitariadecolombia.edu.co
                     </p>
 
                 </div>
