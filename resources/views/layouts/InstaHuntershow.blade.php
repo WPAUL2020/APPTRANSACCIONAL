@@ -45,7 +45,7 @@
 
                     <section class="site-logo">
 
-                        <a href="index.html">
+                        <a href="{{ url('/') }}">
                             <img src="{{ asset('Imagenes/logo.png') }}" width="120" />
                         </a>
 
