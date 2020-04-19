@@ -12,6 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('blogFrontend/assets/images/favicon.ico') }}">
 
+
     <title>InstaHuter Preview</title>
 
 
@@ -31,63 +32,108 @@
 
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                       INICIO
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="wrap">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+        <!-- Logo and Navigation -->
+    <div class="site-header-container container">
 
-                    </ul>
+        <div class="row">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
+            <div class="col-md-12">
 
+                <header class="site-header">
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
-                            </li>
-                            <!-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>-->
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                    <section class="site-logo">
+
+                        <a href="index.html">
+                            <img src="{{ asset('Imagenes/logo.png') }}" width="120" />
+                        </a>
+
+                    </section>
+
+                    <nav class="site-nav">
+
+                        <ul class="main-menu hidden-xs" id="main-menu">
+                            <li>
+                                <a href="{{ url('/') }}">
+                                    <span>Inicio</span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
                             </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                            <li>
+                                <a href="{{URL::to('Servicios')}}">
+                                    <span>Sevicios</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('Contact')}}">
+                                    <span>Contactenos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/home') }}">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('instahunters') }}">
+                                    <span>InstaHunters <i class="fas fa-spider"></i></span>
+                                </a>
+                            </li>
+                        </ul>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+
+                        <div class="visible-xs">
+
+                            <a href="#" class="menu-trigger">
+                                <i class="entypo-menu"></i>
+                            </a>
+
+                        </div>
+                    </nav>
+
+                </header>
+
+            </div>
+
+        </div>
+
     </div>
+        <!-- Breadcrumb -->
+    <section class="breadcrumb">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-9">
+
+                    <h1>Vista Previa</h1>
+
+                                <ol class="breadcrumb bc-3" >
+                            <li>
+                    <a href="{{ url('/home') }}"><i class="fas fa-home"></i> Home</a>
+                </li>
+                        <li>
+
+                                <a href="{{ url('instahunters') }}">InstaHunters <i class="fas fa-spider"></i></a>
+                        </li>
+                    <li class="active">
+
+                                <strong>Vista Previa <i class="fas fa-eye"></i></strong>
+                        </li>
+                        </ol>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Blog -->
+
 	<!-- Bottom scripts (common) -->
 	<script src="{{ asset('blogFrontend/assets/js/gsap/TweenMax.min.js') }}" defer></script>
 	<script src="{{ asset('blogFrontend/assets/js/bootstrap.js') }}" defer></script>

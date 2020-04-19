@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Fonts -->
-        
+
 
         <!-- Styles -->
         <style>
@@ -88,18 +88,18 @@
             <br>
             <br>
             <div><b><center> Transforma tu empresa en un motor de   crecimiento para tu negocio</center></b>
-        <br>        
+        <br>
         <br>
         <br>
         <br>
         <br>
 
         <b><center>Elaborado por: Semillero de Investigación BigData</center></b>
-        
+
             </div>
             </div>
         </div>
-        </div>        
-        
+        </div>
+
     </body>
 </html>
