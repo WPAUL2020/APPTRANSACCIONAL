@@ -15,10 +15,20 @@ class instahuntersController extends Controller
     /**
      * $request
      *
-     * @var undefined
+     * @var request
      */
     protected $request;
+    /**
+     * $client
+     *
+     * @var guzzle
+     */
     protected $client;
+    /**
+     * $data2view
+     *
+     * @var string
+     */
     protected $data2view;
 
 
@@ -57,7 +67,7 @@ class instahuntersController extends Controller
              */
             $allData = $this->paginate($allData);
             return $allData;
-            /* return view('instahunters\instahunterview', compact('allData')); */
+
     }
 
 
@@ -97,11 +107,7 @@ class instahuntersController extends Controller
 
     public function getCsv()
     {
-        $client = new Client([
-            'base_uri' => 'http://localhost/AnalisisBigData/public/'
-        ]);
-
-            $response = $client->request('GET', 'apiPreview.php');
+            $response = $this->client->request('GET', 'apiPreview.php');
             $posts = json_decode($response->getBody()->getContents(), true);
 
             $headers = ['img', 'txt','date', 'likes','comentarios'];
@@ -112,29 +118,29 @@ class instahuntersController extends Controller
                     ->renderStream();
         }
 
-        public function paginate($items)
-        {
+    public function paginate($items)
+    {
 
-            // Get current page form url e.x. &page=1
-            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        // Get current page form url e.x. &page=1
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
 
-            // Create a new Laravel collection from the array data
-            $itemCollection = collect($items);
+        // Create a new Laravel collection from the array data
+        $itemCollection = collect($items);
 
-            // Define how many items we want to be visible in each page
-            $perPage = 3;
+        // Define how many items we want to be visible in each page
+        $perPage = 3;
 
-            // Slice the collection to get the items to display in current page
-            $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+        // Slice the collection to get the items to display in current page
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
 
-            // Create our paginator and pass it to the view
-            $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+        // Create our paginator and pass it to the view
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
 
-            // set url path for generted links
-            $paginatedItems->setPath($this->request->url());
+        // set url path for generted links
+        $paginatedItems->setPath($this->request->url());
 
-            return view('instahunters\instahunterview', ['items' => $paginatedItems]);
-        }
+        return view('instahunters\instahunterview', ['items' => $paginatedItems]);
+    }
 
 
 }

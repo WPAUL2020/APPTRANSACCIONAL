@@ -53,6 +53,14 @@
 
                         </div>
                         @endforeach
+
+
+                            <form action="{{URL::to('instahunters/instahunterview')}}" method="post"> {{ csrf_field() }}
+                                <button href="#" type="submit" class="btn btn-outline-secondary pull-right btn-lg" name="save">
+                                    Donwload CSV <i class="fas fa-file-download"></i>
+                                 </button>
+                            </form>
+
                         <!-- Blog Pagination -->
                         <div class="text-center">
 
@@ -67,6 +75,19 @@
                     </div>
 
                 </div>
+                <div class="col-sm-4">
+
+                    <!-- List Sidebar -->
+    <div class="sidebar">
+
+        <h3>
+            <form action="{{URL::to('instahunters/instahunterview')}}" method="post"> {{ csrf_field() }}
+                <button href="#" type="submit" class="btn btn-outline-secondary pull-right btn-lg" name="save">
+                    Donwload CSV <i class="fas fa-file-download"></i>
+                 </button>
+            </form>
+        </h3>
+    </div>
 
     </section>
         <!-- Footer Widgets -->
