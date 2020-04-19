@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Client;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 
 class instahuntersController extends Controller
@@ -49,7 +52,12 @@ class instahuntersController extends Controller
             $response =  $this->client->request('GET', 'apiPreview.php');
             $allData = json_decode($response->getBody()->getContents());
 
-            return view('instahunters\instahunterview', compact('allData'));
+            /**
+             * Paginación
+             */
+            $allData = $this->paginate($allData);
+            return $allData;
+            /* return view('instahunters\instahunterview', compact('allData')); */
     }
 
 
@@ -103,5 +111,30 @@ class instahuntersController extends Controller
                     ->setData($posts)
                     ->renderStream();
         }
+
+        public function paginate($items)
+        {
+
+            // Get current page form url e.x. &page=1
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+            // Create a new Laravel collection from the array data
+            $itemCollection = collect($items);
+
+            // Define how many items we want to be visible in each page
+            $perPage = 3;
+
+            // Slice the collection to get the items to display in current page
+            $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+
+            // Create our paginator and pass it to the view
+            $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+
+            // set url path for generted links
+            $paginatedItems->setPath($this->request->url());
+
+            return view('instahunters\instahunterview', ['items' => $paginatedItems]);
+        }
+
 
 }

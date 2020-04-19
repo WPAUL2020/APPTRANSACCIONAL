@@ -10,7 +10,7 @@
                 <div class="col-sm-8">
 
                     <div class="blog-posts">
-                        @foreach ($allData as $data)
+                        @foreach ($items as $data)
                         <!-- Blog Post -->
                         <div class="blog-post">
 
@@ -58,22 +58,7 @@
 
                             <ul class="pagination">
                                 <li class="active">
-                                    <a href="#">1</a>
-                                </li>
-                                <li>
-                                    <a href="#">2</a>
-                                </li>
-                                <li>
-                                    <a href="#">3</a>
-                                </li>
-                                <li>
-                                    <a href="#">4</a>
-                                </li>
-                                <li>
-                                    <a href="#">5</a>
-                                </li>
-                                <li>
-                                    <a href="#">Next</a>
+                                    {{ $items->links() }}
                                 </li>
                             </ul>
 
