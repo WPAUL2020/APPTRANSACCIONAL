@@ -130,7 +130,7 @@
         </div>
 
     </section>
-
+@yield('content')
 
     <!-- Blog -->
 
