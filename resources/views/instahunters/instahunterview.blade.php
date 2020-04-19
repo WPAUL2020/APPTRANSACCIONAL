@@ -150,92 +150,6 @@
 
                 </div>
 
-                <div class="col-sm-4">
-
-                    <!-- List Sidebar -->
-    <div class="sidebar">
-
-        <h3>
-            <i class="entypo-list"></i>
-            Categories
-        </h3>
-
-
-        <div class="sidebar-content">
-
-            <ul>
-                <li>
-                    <a href="#">Art Direction <span>(3)</span></a>
-                </li>
-                <li>
-                    <a href="#">Photography <span>(7)</span></a>
-                </li>
-                <li>
-                    <a href="#">3D Modelling <span>(5)</span></a>
-                </li>
-                <li>
-                    <a href="#">Web Design <span>(1)</span></a>
-                </li>
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- Comments Sidebar -->
-    <div class="sidebar">
-
-        <h3>
-            <i class="entypo-chat"></i>
-            Recent Comments
-        </h3>
-
-        <div class="sidebar-content">
-
-            <ul class="discussion-list">
-                <li>
-                    <a href="#" class="thumb">
-                        <img src="assets/images/user-icon-1.png" width="43" class="img-circle" />
-                    </a>
-
-                    <div class="details">
-                        <a href="#">John Doe</a>
-                        <p>At vero eos et accusamus et iusto odio dignissimos...</p>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="#" class="thumb">
-                        <img src="assets/images/user-icon-1.png" width="43" class="img-circle" />
-                    </a>
-
-                    <div class="details">
-                        <a href="#">John Doe</a>
-                        <p>At vero eos et accusamus et iusto odio dignissimos...</p>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="#" class="thumb">
-                        <img src="assets/images/user-icon-1.png" width="43" class="img-circle" />
-                    </a>
-
-                    <div class="details">
-                        <a href="#">John Doe</a>
-                        <p>At vero eos et accusamus et iusto odio dignissimos...</p>
-                    </div>
-                </li>
-            </ul>
-
-        </div>
-
-    </div>
-                </div>
-
-            </div>
-
-        </div>
-
     </section>
         <!-- Footer Widgets -->
     <section class="footer-widgets">
@@ -295,7 +209,9 @@
             <div class="row">
 
                 <div class="col-sm-6">
-                    Copyright &copy; Neon - All Rights Reserved.
+                    © 2020 Copyright:
+                    <a href="https://universitariadecolombia.edu.co/programas/profesionales/ingenieria-de-sistemas/"> Semillero Ingenieria de Sistemas, Universitaria de Colombia. </a>
+
                 </div>
 
                 <div class="col-sm-6">
